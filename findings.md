@@ -88,3 +88,21 @@ if(msg.sender != owner) {
 }
 ```
 
+### [l-1] The natspec indicates a parameter that does not exist making the natspect to be incorrect
+
+```javascript
+  /*
+     * @notice This allows only the owner to retrieve the password.
+     * @param newPassword The new password to set.
+     */
+    function getPassword() external view returns (string memory) {
+        if (msg.sender != s_owner) {
+            revert PasswordStore__NotOwner();
+        }
+        return s_password;
+    }
+
+```
+
+**Recommended Mitigation:** remove the line indicating the newPassword parameter
+
