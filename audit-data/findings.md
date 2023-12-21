@@ -1,4 +1,4 @@
-### Storing the password on chain makes it visible to anyone and no longer private
+### [H-1] Storing the password on chain makes it visible to anyone and no longer private
 
 **Desctiption:** All the data that is stored on chain is visible to anyone and can be read by anyone, the `PasswordStore::s_password` is a private variable and can only be accessed through the `PasswordStore::getPassword` function which is intended to be only called by the owner of the contract.
 
@@ -37,7 +37,7 @@ cast parse-bytes32-string <enter the bytes here to see the password>
 
 Due to this the overall architecture of the protocol should be rethought, ie one could encrypt the password offchain and store the encrypted password onchain this would require another user to remember the password offchain, however, you would want to remove the view function to prevent users to accidentaly send a transaction with the password that decrypts your password
 
-### [h-2] `PasswordStore::setOwner` function has no access controll meaning that a non owner can set the password
+### [H-2] `PasswordStore::setOwner` function has no access controll meaning that a non owner can set the password
 
 **Description:**
 
